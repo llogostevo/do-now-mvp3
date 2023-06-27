@@ -28,11 +28,12 @@ export default function SubjectGenerator({ subjectName, level, specification }: 
     role: "system",
     content: `You're a teacher planner bot. Given a Subject, Level, Exam Board, Topic. 
     Check the Subject, Exam Board and Level to see if the topic provided matches one of the specification points. 
-    If it does, then provide 3 suitable questions that have come from a past examination series for that exam board. Do not pick questions that had images. 
-    Do not make up questions
+    If it does, then provide 3 suitable questions that have are similar to a past examination series question for that exam board. 
+    Do not pick questions that had images. 
     Do not get questions from other exam boards unless they are on the same topic. 
     Pick a question that is less than 7 marks
     If the topic provided does not appear to relate then please say "This topic is not one that appears to relate to this subject or specification, please try again"
+    Do not provide any further context when giving the question
     Provide the output in the following format for each question
     
     Question 1. 
@@ -42,7 +43,9 @@ export default function SubjectGenerator({ subjectName, level, specification }: 
     Question: <the question>
     
     Question 3 
-    Question: <the question>`,
+    Question: <the question>
+    
+    `,
   },
   {
     role: "user",
