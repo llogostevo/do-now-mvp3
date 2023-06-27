@@ -2,7 +2,7 @@
 import SubjectGenerator from "../components/subjectGenerator";
 import { useState } from "react";
 type Level = 'GCSE' | 'A level';
-type Subject = 'Art' | 'Geography' | 'History' | 'Computer Science' | 'Drama' | 'Maths' | 'English' | 'Physics' | 'Biology' | 'Chemistry';
+type Subject = 'Art' | 'Geography' | 'History' | 'Computer Science' | 'Drama' | 'Maths' | 'English' | 'Physics' | 'Biology' | 'Chemistry' | 'Business';
 type ExamBoard = 'OCR' | 'Edexcel' | 'WJEC' | 'AQA';
 
 
@@ -36,6 +36,10 @@ export default function Subject() {
             </label>
             <label className="flex items-center space-x-2">
               <input type="radio" value="Biology" checked={subject === 'Biology'} onChange={() => setSubject('Biology')} />
+              <span>Biology</span>
+            </label>
+            <label className="flex items-center space-x-2">
+              <input type="radio" value="Business" checked={subject === 'Biology'} onChange={() => setSubject('Biology')} />
               <span>Biology</span>
             </label>
             <label className="flex items-center space-x-2">
