@@ -56,12 +56,11 @@ export default function SubjectGenerator({ subjectName, level, specification }: 
     if (!topic) {
       return;
     }
-
     console.log(history)
     // update the history so it includes the topic 
     const newHistory = [...history, { role: "user", content: topic }];
     setHistory(newHistory);
-    setTopic("");
+    
     console.log(history)
 
     try {
@@ -75,6 +74,7 @@ export default function SubjectGenerator({ subjectName, level, specification }: 
           setShowReset(true);
         }
       });
+      
     } catch (error) {
       console.error("Something went wrong!", error);
     }
@@ -122,15 +122,12 @@ export default function SubjectGenerator({ subjectName, level, specification }: 
           
           Question 3 
           Question: <the question>`,
-      },
-      {
-        role: "user",
-        content: `<Subject: ${subjectName}>, <Level: ${level}>, <Exam Board: ${specification}>, <Topic: ${topic}>`
       }]
     );
     setIsResultReturned(false);
     setIsAnswerReturned(false);
     setShowReset(false);
+    setTopic("");
   }
 
   return (
@@ -175,13 +172,16 @@ export default function SubjectGenerator({ subjectName, level, specification }: 
         <div className="mt-4 whitespace-pre-wrap border p-4">{answer}</div>
       )}
       {/* show answer button if returned */}
-      {isResultReturned && (
+      {!isAnswerReturned && isResultReturned && (
+        
         <button
         className="rounded border border-green-700 text-green-400 hover:bg-green-500 hover:text-black p-2 m-4 transition-colors duration-200"
         onClick={handleAnswer}
         >
           Click me for answers!
         </button>
+
+
       )}
 
 {/* show reset button if result or answer has been returned */}
