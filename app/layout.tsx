@@ -12,8 +12,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <main className="min-h-screen bg-neutral-900 flex flex-col items-center">
+      <body className="bg-black text-white min-h-screen">
+        <main >
           {children}
         </main>
       </body>

@@ -33,13 +33,15 @@ export default function Login() {
   }
 
   return (
-    <div className="flex-1 flex flex-col w-full max-w-sm justify-center gap-2">
+    <div className="flex-1 flex flex-col max-w-3xl mt-24 justify-center items-center mx-auto">
       {view === 'check-email' ? (
         <p className="text-center text-neutral-400">
           Check <span className="font-bold text-white">{email}</span> to
           continue signing up
         </p>
       ) : (
+        <>
+        <h1>Do Now Generator</h1>
         <form
           className="flex-1 flex flex-col w-full max-w-sm justify-center gap-2"
           onSubmit={view === 'sign-in' ? handleSignIn : handleSignUp}
@@ -98,6 +100,7 @@ export default function Login() {
             </>
           ) : null}
         </form>
+        </>
       )}
     </div>
   )
